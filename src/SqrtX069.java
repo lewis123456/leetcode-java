@@ -5,6 +5,7 @@ import java.util.Scanner;
  * @Date 1/28/18 12:06 PM
  */
 public class SqrtX069 {
+    //todo
     public int mySqrt(int x) {
         int left = 1;
         int right = x;
