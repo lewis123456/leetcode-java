@@ -25,6 +25,7 @@ public class RemoveDuplicatesfromSortedList083 {
             }
             q = q.next;
             p.next = q;
+            p = q;
         }
         return head;
     }
