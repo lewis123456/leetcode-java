@@ -9,7 +9,6 @@ public class ExcelSheetColumnTitle168 {
         StringBuilder result = new StringBuilder();
         if (27 > n) {
             int tmp = n % 26;
-            if (0 == )
         }
         while (0 != n) {
             int tmp = n % 26 + 1 + 64;
