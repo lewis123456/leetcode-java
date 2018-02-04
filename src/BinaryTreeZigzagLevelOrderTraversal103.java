@@ -3,17 +3,17 @@ import java.util.List;
 
 /**
  * @Author lpf
- * @Date 2/4/18 10:22 PM
+ * @Date 2/4/18 10:41 PM
  */
-public class BinaryTreeLevelOrderTraversal102 {
+public class BinaryTreeZigzagLevelOrderTraversal103 {
     private class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode(int x) { val = x; }
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
     }
 
-    public List<List<Integer>> levelOrder(TreeNode root) {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (null == root) {
             return result;
@@ -23,6 +23,7 @@ public class BinaryTreeLevelOrderTraversal102 {
             pre.add(root.val);
             preNode.add(root);
             result.add(pre);
+            boolean order = false;
             while (true) {
                 List<Integer> now = new ArrayList<>();
                 List<TreeNode> nowNode = new ArrayList<>();
@@ -40,7 +41,15 @@ public class BinaryTreeLevelOrderTraversal102 {
                 if (0 == now.size()) {
                     return result;
                 } else {
+                    if (!order) {
+                        for (int i=0; i<now.size()/2; ++i) {
+                            int temp = now.get(i);
+                            now.set(i, now.get(now.size()-i-1));
+                            now.set(now.size()-i-1, temp);
+                        }
+                    }
                     result.add(now);
+                    order = !order;
                 }
             }
         }
